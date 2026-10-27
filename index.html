@@ -1,0 +1,67 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<title>Damru '26 Fest Ride</title>
+<meta name="description" content="The Damru '26 fest at Rishihood University: collect passes at the stalls, follow the dhol to the concert, ride the camel and race the e-cart.">
+<link rel="stylesheet" href="css/game.css">
+<script type="importmap">
+{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.min.js", "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/", "ez-tree": "https://cdn.jsdelivr.net/npm/@dgreenheck/ez-tree@1.1.0/build/ez-tree.es.js" } }
+</script>
+<div id="app">
+  <canvas id="view"></canvas>
+
+  <!-- loading / start screen -->
+  <div id="intro" class="panel-screen">
+    <div class="intro-card">
+      <div class="kicker">DAMRU '26 · RISHIHOOD UNIVERSITY</div>
+      <h1>Fest Ride</h1>
+      <p class="lede">The fest is on. Collect your Damru passes, follow the dhol to the concert, race the camel and the e-cart, and find every place on campus.</p>
+      <div id="loadbar"><div id="loadfill"></div></div>
+      <div id="loadtext">Loading the campus…</div>
+      <button id="startbtn" disabled>Loading…</button>
+      <div class="intro-controls">
+        <div><b>Move</b> W A S D / arrows · <b>Run</b> Shift</div>
+        <div><b>Get on / off</b> E · <b>Look</b> drag the mouse</div>
+        <div><b>Map</b> M · <b>Camera</b> C · <b>Mute</b> N</div>
+        <div><b>Race</b> ride the camel or e-cart into the blue ring by Gate 2</div>
+      </div>
+      <label class="quality">Graphics
+        <select id="quality"><option value="auto">Auto</option><option value="high">High</option><option value="medium">Medium</option><option value="low">Low</option></select>
+      </label>
+    </div>
+  </div>
+
+  <!-- in-game HUD -->
+  <div id="hud" hidden>
+    <div id="status">
+      <div class="title">DAMRU '26 · RISHIHOOD</div>
+      <div id="found">Places found 0 / 0</div>
+      <div id="mode">On foot</div>
+    </div>
+    <canvas id="minimap" width="220" height="220"></canvas>
+    <div id="prompt" hidden></div>
+    <div id="card" hidden><div class="card-tag" id="cardtag"></div><div class="card-title" id="cardtitle"></div><div class="card-body" id="cardbody"></div></div>
+    <div id="toast" hidden></div>
+    <div id="mission"><div class="m-tag">FEST MISSION <span id="mstep"></span></div><div id="mtext"></div><div id="mtimer" hidden></div></div>
+    <div id="race" hidden><div class="r-tag">RACE</div><div id="rtime">0:00.0</div><div id="rinfo"></div></div>
+    <div id="countdown" hidden></div>
+    <div id="topbtns">
+      <button id="btnmap" title="Map (M)">Map</button>
+      <button id="btnsound" title="Sound (N)">Sound on</button>
+      <button id="btnfull" title="Full screen">⛶</button>
+    </div>
+    <div id="bigmap" hidden><canvas id="bigmapcanvas" width="900" height="900"></canvas><div class="bigmap-hint">Press M or tap to close</div></div>
+    <div id="finish" hidden><div class="finish-card"><div class="kicker">ALL PLACES FOUND</div><div id="finishtext"></div><button id="againbtn">Play again</button></div></div>
+  </div>
+
+  <!-- touch controls -->
+  <div id="touch" hidden>
+    <div id="stick"><div id="knob"></div></div>
+    <button id="tbtn-use" class="tbtn">E</button>
+    <button id="tbtn-run" class="tbtn">Run</button>
+  </div>
+</div>
+<script>window.RCR_EMBED_MODELS = true;</script>
+<script type="module" src="js/main.js"></script>
+
+</body></html>
